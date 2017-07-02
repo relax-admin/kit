@@ -25,6 +25,7 @@ type ArrayResult struct {
 
 type (
 	APIParam struct {
+		Q              string
 		SkipCount      int
 		MaxResultCount int
 		Fields         string
