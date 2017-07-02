@@ -1,4 +1,4 @@
-package kit
+package util
 
 import (
 	"fmt"
@@ -6,6 +6,11 @@ import (
 	"runtime"
 	"strconv"
 	"strings"
+)
+
+const (
+	Log_Info  = "log_info"
+	Log_Error = "log_err"
 )
 
 func ToString(raw interface{}) string {
@@ -46,7 +51,7 @@ func ToString(raw interface{}) string {
 }
 
 //Black(30),Red(31),Green(32),Yellow(33),Blue(34),Magenta(35),Cyan(36),White(37)
-func InfoTest(act interface{}) {
+func Info(act interface{}) {
 	pc, file, line, _ := runtime.Caller(1)
 	//fmt.Println("Name of function: " + runtime.FuncForPC(pc).Name())
 	fmt.Printf("\033[35m%s:%d:\n\n\tmethod:%v\n\n\tgot: %#v\033[39m\n\n", filepath.Base(file), line, runtime.FuncForPC(pc).Name(), act)

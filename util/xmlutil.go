@@ -1,4 +1,4 @@
-package kit
+package util
 
 import (
 	"bytes"
