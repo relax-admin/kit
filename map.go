@@ -1,4 +1,4 @@
-package util
+package kit
 
 //务必保证值为string
 func ToMapString(param map[string]interface{}) (result map[string]string) {

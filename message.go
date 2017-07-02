@@ -1,4 +1,4 @@
-package util
+package kit
 
 import (
 	"fmt"
@@ -103,9 +103,9 @@ func SystemMessage(detail string) *Result {
 	return NewApiMessage(10001, detail)
 }
 
-func NewApiError(resourceKey int, details string, params ...interface{}) (apiError Error) {
+func NewApiError(resourceKey int, details string, params ...interface{}) (apiError ErrorResult) {
 
-	return Error{Code: resourceKey, Message: MessageString(resourceKey, params...), Details: details}
+	return ErrorResult{Code: resourceKey, Message: MessageString(resourceKey, params...), Details: details}
 }
 
 func NewApiStatusMessage(statusCode int, resourceKey int, details string, params ...interface{}) (statusMessage *StatusMessage) {

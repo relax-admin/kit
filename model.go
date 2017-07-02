@@ -1,14 +1,14 @@
-package util
+package kit
 
 import "fmt"
 
 type Result struct {
 	Success bool        `json:"success"`
 	Result  interface{} `json:"result"`
-	Error   Error       `json:"error"`
+	Error   ErrorResult `json:"error"`
 }
 
-type Error struct {
+type ErrorResult struct {
 	Code    int         `json:"code,omitempty"`
 	Message string      `json:"message,omitempty"`
 	Details interface{} `json:"details,omitempty"`
@@ -34,6 +34,6 @@ type (
 	}
 )
 
-func (e Error) Error() string {
+func (e ErrorResult) Error() string {
 	return fmt.Sprintf("[%d]%v-%v", e.Code, e.Message, e.Details)
 }

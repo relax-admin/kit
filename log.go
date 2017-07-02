@@ -1,14 +1,9 @@
-package log
+package kit
 
 import (
 	"fmt"
 	"path/filepath"
 	"runtime"
-)
-
-const (
-	Log_Info  = "log_info"
-	Log_Error = "log_err"
 )
 
 func Info(act interface{}) {
