@@ -11,7 +11,7 @@ func Info(act interface{}) {
 	fmt.Printf("%s:%s:%d:--method:%v--got: %#v-\n\n", Log_Info, filepath.Base(file), line, runtime.FuncForPC(pc).Name(), act)
 }
 
-func Error(act interface{}) {
+func Debug(act interface{}) {
 	pc, file, line, _ := runtime.Caller(1)
 	fmt.Printf("%s:%s:%d:--method:%v--got: %#v-\n\n", Log_Info, filepath.Base(file), line, runtime.FuncForPC(pc).Name(), act)
 }

@@ -103,9 +103,9 @@ func SystemMessage(detail string) *Result {
 	return NewApiMessage(10001, detail)
 }
 
-func NewApiError(resourceKey int, details string, params ...interface{}) (apiError ErrorResult) {
+func NewApiError(resourceKey int, details string, params ...interface{}) (apiError Error) {
 
-	return ErrorResult{Code: resourceKey, Message: MessageString(resourceKey, params...), Details: details}
+	return Error{Code: resourceKey, Message: MessageString(resourceKey, params...), Details: details}
 }
 
 func NewApiStatusMessage(statusCode int, resourceKey int, details string, params ...interface{}) (statusMessage *StatusMessage) {
