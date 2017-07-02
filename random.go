@@ -29,7 +29,7 @@ func UuIdInt64() (uuId uint64) {
 // 17	OutTradeNo
 // 18	RefundNo
 // 19	PrePay OutTradeNo
-func UuIdForPay(randomType string) string {
+func UuIdString(randomType string) string {
 
 	return randomType + GetCurrentDate() + strconv.FormatUint(UuIdInt64(), 10)
 }

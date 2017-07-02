@@ -1,8 +1,10 @@
-package kit
+package util
 
 import (
 	"encoding/json"
 	"encoding/xml"
+
+	"github.com/elandcloud/kit"
 )
 
 type AtomData struct {
@@ -30,7 +32,7 @@ func (a *AtomData) ToUrl() string {
 	for k, v := range a.Data {
 		m[k] = ToString(v)
 	}
-	return Encode(&m)
+	return kit.Encode(&m)
 }
 
 func (a *AtomData) ToJson() string {

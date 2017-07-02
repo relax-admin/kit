@@ -1,22 +1,24 @@
-package kit
+package util
 
 import (
 	"reflect"
 	"strings"
 
+	"github.com/elandcloud/kit"
+
 	reflections "gopkg.in/oleiade/reflections.v1"
 )
 
-func CheckQueryCondition(dto *APIParam, checkStruct interface{}) (apiResult *Result) {
+func CheckQueryCondition(dto *kit.APIParam, checkStruct interface{}) (apiResult *kit.Result) {
 	var err error
 	if len(dto.Fields) != 0 {
 		var ok bool
 		fields := strings.Split(dto.Fields, ",")
 		for _, v := range fields {
 
-			if ok, err = reflections.HasField(checkStruct, PascalCase(v)); err != nil || ok == false {
+			if ok, err = reflections.HasField(checkStruct, kit.PascalCase(v)); err != nil || ok == false {
 				dto = nil
-				apiResult = NewApiMessage(10011, "", v)
+				apiResult = kit.NewApiMessage(10011, "", v)
 				return
 			}
 		}
@@ -32,9 +34,9 @@ func CheckQueryCondition(dto *APIParam, checkStruct interface{}) (apiResult *Res
 				dto.SortAsc += "," + v
 			}
 
-			if ok, err := reflections.HasField(checkStruct, PascalCase(v)); err != nil || ok == false {
+			if ok, err := reflections.HasField(checkStruct, kit.PascalCase(v)); err != nil || ok == false {
 				dto = nil
-				apiResult = NewApiMessage(10011, "", v)
+				apiResult = kit.NewApiMessage(10011, "", v)
 				return
 			}
 		}
@@ -66,7 +68,7 @@ func FilterFieldsMap(objArray interface{}, fields []string) []map[string]interfa
 func ResultMap(keys []string) map[string]string {
 	result := make(map[string]string, 0)
 	for _, v := range keys {
-		result[CamelCase(v)] = PascalCase(v)
+		result[kit.CamelCase(v)] = kit.PascalCase(v)
 	}
 	return result
 }
