@@ -25,7 +25,7 @@ func init() {
 func NewToken(m map[string]interface{}) (string, error) {
 	claims := jwt.MapClaims{
 		"iss": "account",
-		"aud": "epayjan",
+		"aud": "kitauth",
 		"nbf": time.Now().Unix(),
 		"exp": time.Now().Add(time.Hour * 24 * 3).Unix(),
 	}
